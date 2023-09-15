@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+    <div class="container">
+        <div class="input"><h1>Enter the 1st Number</h1><input type="number" id="first"></div>
+        <div class="input"><h1>Enter the 2nd Number</h1><input type="number" id="second"></div>
+        <div class="button">
+            <button onclick="addnumber()">+</button>
+            <button onclick="substractnumber()">-</button>
+            <button onclick="multiplynumber()">*</button>
+            <button onclick="dividenumber()">/</button>
+        </div>
+        <div class="input"><h1>Result</h1><input type="number" id="display"></div>
+    </div>
+    <script>
+        function addnumber() {
+        var inp_data1 = parseFloat(document.getElementById("first").value);
+        var inp_data2 = parseFloat(document.getElementById("second").value);
+
+        var sum = inp_data1+inp_data2;
+             document.getElementById("display").value = sum;
+             console.log(sum);
+        }
+        function substractnumber() {
+        var inp_data1 = parseFloat(document.getElementById("first").value);
+        var inp_data2 = parseFloat(document.getElementById("second").value);
+
+        var sub = inp_data1-inp_data2;
+             document.getElementById("display").value = sub;
+             console.log(sub);
+        }
+        function multiplynumber() {
+        var inp_data1 = parseFloat(document.getElementById("first").value);
+        var inp_data2 = parseFloat(document.getElementById("second").value);
+
+        var multi = inp_data1*inp_data2;
+             document.getElementById("display").value = multi;
+             console.log(multi);
+        }
+        function dividenumber() {
+        var inp_data1 = parseFloat(document.getElementById("first").value);
+        var inp_data2 = parseFloat(document.getElementById("second").value);
+
+        var divide = inp_data1/inp_data2;
+             document.getElementById("display").value = divide;
+             console.log(divide);
+        }
+    </script>
+</body>
+</html>

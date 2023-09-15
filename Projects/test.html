@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <div class="cal">
+      <div class="row1">
+        <div class="value1">
+          <button>Value1</button>
+        </div>
+
+        <div class="value1_Data">
+          <input type="text" name="v1" id="v1_data" />
+        </div>
+      </div>
+
+      <div class="row2">
+        <div class="value2">
+          <button>Value2</button>
+        </div>
+
+        <div class="value1_Data">
+          <input type="text" name="v2" id="v2_data" />
+        </div>
+      </div>
+
+      <div class="row3">
+        <button onclick="sum()">+</button>
+        <button onclick="minus()">-</button>
+        <button onclick="multi()">*</button>
+        <button onclick="division()">/</button>
+      </div>
+
+      <div class="row4">
+        <div  id="display" ></div>
+      </div>
+    </div>
+
+    <script>
+      function sum() {
+        var one = parseFloat(document.getElementById("v1_data").value);
+        var two = parseFloat(document.getElementById("v2_data").value);
+
+        var res = one + two;
+        document.getElementById("display").innerText = res;
+        console.log(res);
+      }
+
+      function minus() {
+        var one = parseFloat(document.getElementById("v1_data").value);
+        var two = parseFloat(document.getElementById("v2_data").value);
+
+        var res = one - two;
+        res = document.getElementById("display").value;
+
+        console.log(res);
+      }
+
+      function multi() {
+        var one = parseFloat(document.getElementById("v1_data").value);
+        var two = parseFloat(document.getElementById("v2_data").value);
+
+        var res = one * two;
+        console.log(res);
+      }
+
+      function division() {
+        var one = parseFloat(document.getElementById("v1_data").value);
+        var two = parseFloat(document.getElementById("v2_data").value);
+
+        var res = one / two;
+        console.log(res);
+      }
+    </script>
+  </body>
+</html>
