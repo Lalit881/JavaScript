@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variables</title>
+</head>
+<body>
+    <h1>Variables</h1>
+    <!-- A Variable is "named storage" for Data -->
+    <h3>Types of Variables</h3>
+    <ul>
+        <li>var</li>
+        <li>let</li>
+        <li>const</li>
+    </ul>
+    <script>
+        var name = "Lalit" ;// Initialization and Declaration
+        var name = "Lalit Kuamr"; // Re-Declaration is possible
+        name = "Lalit Purohit"; // Re-Assiment is possible 
+        // When the value is changed, the old data is removed from the variable:
+        console.log(name);
+
+
+        let age = 23; // Initialization and Declaration
+        // let age =  24; // Re-Declaration is not possible
+        age = 24; // Re-Assiment is possible
+        console.log(age);
+
+        const marks = 90; // Initialization and Declaration
+        // const marks = 95; // Re-Declaration is not possible
+        // marks = 95; // Re-Assiment is not possible
+        // console.log(marks); // Re-Assiment is possible
+
+
+        // We can also declare two variables and copy data from one into the other.
+        let name1 = "Lalit";
+        let firstname;
+        firstname = name1;
+        console.log(firstname);
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataTypes</title>
+</head>
+<body>
+    <h1>Data Types</h1>
+    <!-- There are Eight basic data types in JavaScript -->
+    <h3>Types of Data Types</h3>
+    <ul>
+        <li>Number</li>
+            <!-- Besides regular numbers, there are so-called “special numeric values” 
+            which also belong to this data type: Infinity, -Infinity and NaN. -->
+
+        <li>BigInt</li>
+            <!-- In JavaScript, the “number” type cannot safely represent integer values 
+            larger than (2^53-1) (that’s 9007199254740991), or less than -(2^53-1) for negatives. So We use BigInt -->
+            <!-- A BigInt value is created by appending n to the end of an integer -->
+
+        <li>String</li>
+            <!-- Backticks are “extended functionality” quotes. 
+            They allow us to embed variables and expressions into a string by wrapping them in ${…}, for example: -->
+
+        <li>Boolean (true/false)</li>
+            <!-- The boolean type has only two values: true and false. -->
+
+        <li>null</li>
+            <!-- In JavaScript, null is not a “reference to a non-existing object” or a “null pointer” 
+            like in some other languages. It’s just a special value which represents “nothing”, “empty” or “value unknown”. -->
+
+        <li>undefined</li>
+            <!-- The meaning of undefined is “value is not assigned”.
+            If a variable is declared, but not assigned, then its value is undefined: -->
+
+        <li>Object & Symbol</li>
+        <li>typeof</li>
+    </ul>
+    <script>
+        // NUMBER
+        // alert(1/0); // Infinity
+        // alert("Hello"/2); // NaN
+
+        // BigInt
+        const bigInt = 123456789012345678901234567890n;
+        console.log(bigInt);
+
+        // String
+        let name = "John";
+
+        // embed a variable
+        // alert( `Hello, ${name}!` ); // Hello, John!
+
+        // embed an expression
+        // alert( `the result is ${1 + 2}` ); // the result is 3
+
+        // Boolean
+        let isGreater = 4 > 2;
+        console.log(isGreater); // true
+        
+        // null
+        let age = null;
+
+        // undefined
+        let marks;
+        alert(marks); // shows "undefined"
+
+
+    </script>
+</body>
+</html>
