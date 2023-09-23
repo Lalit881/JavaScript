@@ -35,7 +35,12 @@
             If a variable is declared, but not assigned, then its value is undefined: -->
 
         <li>Object & Symbol</li>
+            <!-- All other types are called “primitive” because their values can contain only a single thing 
+            (be it a string or a number or whatever). In contrast, 
+            objects are used to store collections of data and more complex entities. -->
         <li>typeof</li>
+            <!-- The typeof operator allows us to see which type is stored in a variable -->
+            
     </ul>
     <script>
         // NUMBER
@@ -66,7 +71,14 @@
         let marks;
         alert(marks); // shows "undefined"
 
-
+        // typeof
+        typeof undefined // "undefined"
+        typeof 0 // "number"
+        typeof 10n // "bigint"
+        typeof Math // "object"  (1)
+        typeof null // "object"  (2)
+        typeof alert // "function"  (3)
+        
     </script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interaction</title>
+</head>
+<body>
+    <h1>Interaction</h1>
+    <h3>Types of Interaction</h3>
+
+    <ul>
+        <li>alert</li>
+            <!-- the visitor can’t interact with the rest of the page, press other buttons, etc, 
+            until they have dealt with the window. In this case – until they press “OK”. -->
+        <li>prompt</li>
+            <!-- The visitor can type something in the prompt input field and press OK. 
+            Then we get that text in the result. Or they can cancel the input by pressing Cancel or hitting the Esc key, 
+            then we get null as the result. -->
+        <li>confirm</li>
+            <!-- The function confirm shows a modal window with a question and two buttons: OK and Cancel.
+            The result is true if OK is pressed and false otherwise. -->
+    </ul>
+    <script>
+        // alert
+        let name = "Lalit"
+        alert(name);
+
+        // prompt
+        // result = prompt(title, [default]);
+        // default = An optional second parameter, the initial value for the input field.
+        result = prompt("what is your age?", 18);
+        console.log(result);
+
+        // confirm
+        // result = confirm(question);
+        let age  = confirm("Are you 18+")
+        alert(age);
+
+        // let conf = confirm("You must be at least 18 years old to view this content.");
+        // let name = prompt("What's your name?");
+        // let age = prompt("What's your age?");
+
+        // if (age>=18) {
+        // alert("Welcome!");
+        // }
+        // else {
+        // alert("Sorry, you must be at least 18 years old to view this content.");
+
+        // }
+    </script>
+</body>
+</html>

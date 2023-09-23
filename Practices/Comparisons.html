@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Comparisons</title>
+  </head>
+  <body>
+    <h1>comparisons</h1>
+    <ul>
+      <li>Greater/less than: a > b, a < b.</li>
+      <li>Greater/less than or equals: a >= b, a <= b.</li>
+      <li>
+        Equals: a == b, please note the double equality sign == means the
+        equality test, while a single one a = b means an assignment.
+      </li>
+      <li>
+        Not equals: In maths the notation is ≠, but in JavaScript it’s written
+        as a != b.
+      </li>
+    </ul>
+    <script>
+      // String comparison
+      // strings are compared letter-by-letter.
+
+      console.log("Z" > "A"); // true
+      console.log("Niha" > "Neha"); // true
+      console.log("Ghee" > "Ghe"); // true
+      //   If both strings end at the same length, then they are equal. Otherwise, the longer string is greater.
+
+      console.log("a" > "A"); // true
+      //   the lowercase character has a greater index in the internal encoding table JavaScript uses (Unicode).
+      // < ----------------------------------------------------------------------------------
+
+      //   Comparison of different types
+      // When comparing values of different types, JavaScript converts the values to numbers.
+      console.log("5" > 3); //true
+      console.log("01" == 1); //true, string '01' becomes a number 1
+
+      // For boolean values, true becomes 1 and false becomes 0.
+      console.log(1 == true); // true
+      console.log(0 == false); // true
+
+      // < ----------------------------------------------------------------------------------
+
+      //   Strict equality
+      console.log("" == false); // true
+      // An empty string, just like false, becomes a zero.
+
+      // A strict equality operator ===
+      // checks the equality without type conversion
+      // In other words, if a and b are of different types,
+      // then a === b immediately returns false without an attempt to convert them.
+      console.log(0 === false); // false
+
+      // < --------------------------------------------------------------------------------
+
+      // Comparison with null and undefined
+      // strict equality check ===
+      console.log(undefined === null); // false
+
+      // non-strict check ==
+      console.log(undefined == null); // true
+      // There’s a special rule. These two are a “sweet couple”: they equal each other (in the sense of ==),
+      // but not any other value.
+
+      // null vs 0
+      console.log(null > 0); // (1) false
+      console.log(null == 0); // (2) false
+      console.log(null >= 0); // (3) true
+      //   The reason is that an equality check == and comparisons > < >= <= work differently.
+      //   Comparisons convert null to a number, treating it as 0.
+      //   That’s why (3) null >= 0 is true and (1) null > 0 is false.
+
+      //   undefined vs 0
+      console.log(undefined > 0); // false (1)
+      console.log(undefined < 0); // false (2)
+      console.log(undefined == 0); // false (3)
+      //   The equality check (3) returns false because undefined only equals null, undefined, and no other value.
+
+      //   < ----------------------------------------------------------------------------------------------------
+    </script>
+  </body>
+</html>
