@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loops: while & for</title>
+    <hi>Loops: while & for</hi>
+  </head>
+  <body>
+    <script>
+      // The “while” loop
+      // while (condition) {
+      // code
+      // so-called "loop body"
+      // }           // syntax of while loop
+      // While the condition is truthy, the code from the loop body is executed.
+      let i = 0;
+      while (i < 5) {
+        i++;
+        console.log(i);
+      }
+
+      // < ----------------------------------------------------------------------------------------
+
+      // The “do…while” loop
+      // The condition check can be moved below the loop body using the do..while syntax:
+      // do {
+      // loop body
+      // } while(condition);
+      let a = 0;
+      do {
+        a++;
+        console.log(a);
+      } while (a < 5);
+
+      // < ----------------------------------------------------------------------------------------
+
+      // The “for” loop
+      // for (begin; condition; step) {
+      // ... loop body ...
+      // }
+      for (let b = 0; b < 10; b++) {
+        console.log(b);
+      }
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Breaking the loop
+      // Normally, a loop exits when its condition becomes falsy.
+      // But we can force the exit at any time using the special break directive.
+      let sum = 0;
+      while (true) {
+        let value = +prompt("Enter the Number", "");
+        if (!value) break;
+        sum += value;
+      }
+      alert("Sum: " + sum);
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Continue to the next iteration
+      // The continue directive is a “lighter version” of break. It doesn’t stop the whole loop. Instead,
+      // it stops the current iteration and forces the loop to start a new one (if the condition allows).
+      // We can use it if we’re done with the current iteration and would like to move on to the next one.
+
+      for (let c = 0; c < 10; c++) {
+        if (c % 2 == 0) continue;
+        console.log(c);
+      }
+
+      // < -----------------------------------------------------------------------------------------
+
+      // Labels for break/continue
+      // The ordinary break after input would only break the inner loop. That’s not sufficient – labels, come to the rescue!
+      // A label is an identifier with a colon before a loop:
+      // labelName: for (...) {
+      //...
+      // }
+
+      outer: for (let i = 0; i < 3; i++) {
+        for (let j = 0; j < 3; j++) {
+          let input = prompt(`Value at coords (${i},${j})`, "");
+
+          // if an empty string or canceled, then break out of both loops
+          if (!input) break outer; // (*)
+
+          // do something with the value...
+        }
+      }
+
+      alert("Done!");
+      // In the code above, break outer looks upwards for the label named outer and breaks out of that loop.
+      // So the control goes straight from (*) to alert('Done!').
+
+      //   solution
+      for (let d = 0; d <= 10; d++) {
+        if (d % 2 == 0) {
+          console.log(d);
+        }
+      }
+
+      let num;
+      do {
+        num = prompt("Enter a number greater than 100?", 0);
+      } while (num <= 100 && num);
+
+      for (let n = 0; n <= 10; n++) {
+        if (n % (n - 1) !== 0) {
+          console.log(n);
+        }
+      }
+
+      // prime number
+      let n = 10;
+
+      nextPrime: for (let i = 2; i <= n; i++) {
+        // for each i...
+
+        for (let j = 2; j < i; j++) {
+          // look for a divisor..
+          if (i % j == 0) continue nextPrime; // not a prime, go next i
+        }
+
+        console.log(i); // a prime
+      }
+    </script>
+  </body>
+</html>

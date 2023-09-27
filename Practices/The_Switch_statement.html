@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Switch Statement</title>
+  </head>
+  <body>
+    <h1>The "switch" statement</h1>
+    <p>
+      A switch statement can replace multiple if checks. It gives a more
+      descriptive way to compare a value with multiple variants.
+    </p>
+  </body>
+  <script>
+    // The syntax
+    //     switch(x) {
+    //   case 'value1':  // if (x === 'value1')
+    //     ...
+    //     [break]
+
+    //   case 'value2':  // if (x === 'value2')
+    //     ...
+    //     [break]
+
+    //   default:
+    //     ...
+    //     [break]
+    // }
+
+    // An Example
+    let a = 2 + 2;
+
+    switch (a) {
+      case 3:
+        alert("Too small");
+        break;
+      case 4:
+        alert("Exactly!"); // only alert Exactly because another value are false and break the loop
+        break;
+      case 5:
+        alert("Too big");
+        break;
+      default:
+        alert("I don't know such values");
+    }
+
+    // If there is no break then the execution continues with the next case without any checks.
+    let b = 2 + 2;
+
+    switch (b) {
+      case 3:
+        alert("Too small");
+      case 4:
+        alert("Exactly!"); // Exactly
+      case 5:
+        alert("Too big"); // Too big
+      default:
+        alert("I don't know such values"); // I don't know such values
+    }
+
+    // Any expression can be a switch/case argument
+    // Both switch and case allow arbitrary expressions.
+    let a1 = "1";
+    let b1 = 0;
+
+    switch (+a1) {
+      case b1 + 1:
+        alert("this runs, because +a1 is 1, exactly equals b1+1");
+        break; // resone +a1 => +1 => 1; b1 + 1 => 0+1 =>1;
+
+      default:
+        alert("this doesn't run");
+    }
+    // Grouping of “case”
+    // Several variants of case which share the same code can be grouped.
+    // For example, if we want the same code to run for case 3 and case 5:
+    let x = 3;
+
+    switch (x) {
+      case 2:
+        alert("Too early");
+        break;
+
+      case 3:
+      case 5:
+        alert("Exactly");
+        alert("worng!");
+        break;
+
+      default:
+        alert("Too Late");
+    }
+
+    // Type matters
+    // the equality check is always strict. The values must be of the same type to match.
+    let arg = prompt("Enter the Value");
+
+    switch (arg) {
+      case "1":
+        alert("one");
+        break;
+
+      case "2":
+      case "3":
+        alert("Two or Three");
+        break;
+
+      case 5:
+        alert("five");
+        break;
+
+      default:
+        alert("An unknown value");
+    }
+    // For 1, the first alert runs.
+    // For 2, or 3, the second alert runs.
+    // But for 5, the result of the prompt is a string "5",
+    // which is not strictly equal === to the number 3. So we’ve got a dead code in case 3!
+    // The default variant will execute.
+
+    // solution
+    let browser = prompt("What is the Browser");
+    if (browser == "Edge") {
+      alert("You've got the Edge!");
+    } else if (browser == "Chrome" || "Firefox" || "Safari" || "Opera") {
+      alert("Okay we support these browsers too");
+    } else {
+      alert("We hope that this page looks ok!");
+    }
+
+    let y = +prompt("y?", "");
+    switch (y) {
+      case 0:
+        alert(0);
+        break;
+
+      case 1:
+        alert(1);
+        break;
+
+      case 2:
+      case 3:
+        alert("2,3");
+        break;
+    }
+  </script>
+</html>

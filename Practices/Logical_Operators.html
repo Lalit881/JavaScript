@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logical_Operators</title>
+  </head>
+  <body>
+    <h1>Logical Operators</h1>
+    <h2>There are four Logical Operators in JavaScript.</h2>
+
+    <ul>
+      <li>|| (OR)</li>
+      <li>&& (AND)</li>
+      <li>! (NOT)</li>
+      <li>?? (Nullish Coalescing)</li>
+    </ul>
+    <script>
+      // || (OR)
+      // the logical OR is meant to manipulate boolean values only.
+      // If any of its arguments are true, it returns true, otherwise it returns false.
+
+      // There are four possible logical combinations:
+      console.log(true || true); // true
+      console.log(false || true); // true
+      console.log(true || false); // true
+      console.log(false || false); // false
+      // If an operand is not a boolean, it’s converted to a boolean for the evaluation.
+
+      // Most of the time, OR || is used in an if statement to test if any of the given conditions is true.
+      let hour = 9;
+      if (hour < 10 || hour > 18) {
+        alert("The office is closed.");
+      }
+
+      // OR "||" finds the first truthy value
+      // result = value1 || value2 || value3;
+      // Evaluates operands from left to right.
+      // For each operand, converts it to boolean. If the result is true, stops and returns the original value of that operand.
+      // If all operands have been evaluated (i.e. all were false), returns the last operand.
+
+      let firstname = "";
+      let lastname = "";
+      let nickname = "lalit";
+      console.log(firstname || lastname || nickname || "purohit");
+      // If all variables were falsy, "lalit" would show up.
+
+      // Short-circuit evaluation.
+      // It means that || processes its arguments until the first truthy value is reached,
+      // and then the value is returned immediately, without even touching the other argument.
+      true || alert("not printed");
+      false || alert("printed");
+      // In the first line, the OR || operator stops the evaluation immediately upon seeing true,
+      // so the alert isn’t run.
+
+      // < ----------------------------------------------------------------------------------------------------
+
+      // &&(AND)
+      // result = a && b;
+      // In classical programming, AND returns true if both operands are truthy and false otherwise:
+      console.log(true && true); // true
+      console.log(false && true); // false
+      console.log(true && false); // false
+      console.log(false && false); // false
+
+      if (1 && 0) {
+        // evaluated as true && false
+        alert("won't work, because the result is falsy");
+      }
+
+      // AND “&&” finds the first falsy value
+      // result = value1 && value2 && value3;
+      // Evaluates operands from left to right
+      // For each operand, converts it to a boolean. If the result is false, stops and returns the original value of that operand.
+      // If all operands have been evaluated (i.e. all were truthy), returns the last operand.
+
+      // if the first operand is truthy,
+      // AND returns the second operand:
+      console.log(1 && 0); // 0
+      console.log(1 && 5); // 5
+
+      // if the first operand is falsy,
+      // AND returns it. The second operand is ignored
+      console.log(null && 5); // null
+      console.log(0 && "no matter what"); // 0
+
+      // Precedence of AND && is higher than OR ||
+      // So the code a && b || c && d is essentially
+      // the same as if the && expressions were in parentheses: (a && b) || (c && d).
+
+      // < ----------------------------------------------------------------------------------------------------
+
+      // !(NOT)
+      // The boolean NOT operator is represented with an exclamation sign !.
+      // result = !value;
+      // The operator accepts a single argument and does the following:
+      // 1.Converts the operand to boolean type: true/false.
+      // 2.Returns the inverse value.
+      console.log(!true); // false
+      console.log(!0); // true
+
+      // A double NOT !! is sometimes used for converting a value to boolean type:
+      console.log(!!true); // false
+      console.log(!!0); // true
+
+      // The precedence of NOT ! is the highest of all logical operators, so it always executes first, before && or ||.
+
+      // solution of check the login
+      // normal way
+    //   let user = prompt("Who's there?");
+    //   if (user === "Admin"){
+    //     let admin = prompt("Password?")
+    //     if (admin === "TheMaster"){
+    //         alert("Welcome!")
+    //     }
+    //     else if (admin === null){
+    //         alert("Canceled")
+    //     }
+    //     else {
+    //         alert("Wrong password")
+    //     }
+    //   }
+    //   else if (user === null ){
+    //     alert("Canceled")
+    //   }
+    //   else {
+    //     alert("I don't know you")
+    //   }
+
+      // Logical way
+      let user = prompt("Who's there?");
+    if (user === "Admin"){
+        let admin = prompt("Password?")
+        if (admin === "TheMaster"){
+            alert("Welcome!")
+        }
+        else if (admin === "" || admin === null){
+            alert("Canceled")
+        }
+        else {
+            alert("Wrong password")
+        }
+      }
+    else if (user === "" || user === null){
+        alert("Canceled")
+        }
+    else {
+        alert("Wrong password")
+        }
+    
+    // < --------------------------------------------------------------------------------------------------------
+
+    // Nullish coalescing operator '??'
+    // The nullish coalescing operator is written as two question marks ??.
+    // The result of a ?? b is:
+    // if a is defined, then a,
+    // if a isn’t defined, then b
+    let boy;
+    console.log(boy ?? "Anonymous") // Anonymous (boy is undefined)
+
+    let girl = "Neha";
+    console.log(girl ?? "Anonymous") // Neha (girl is not null/undefined)
+
+    let firstName = null;
+    let lastName = null;
+    let nickName = "Supercoder";
+
+    // shows the first defined value:
+    console.log(firstName ?? lastName ?? nickName ?? "Anonymous"); // Supercoder
+
+
+    // Comparison with ||(OR)
+    // The important difference between them is that:
+    // 1. || returns the first truthy value.
+    // 2. ?? returns the first defined value.
+    
+    // For Example
+    let height = 0;
+    console.log(height || 100); // 100
+    console.log(height ?? 100); // 0
+
+    // Precedence
+    // The precedence of the ?? operator is the same as ||. They both equal 3 in the MDN table
+    
+    </script>
+  </body>
+</html>

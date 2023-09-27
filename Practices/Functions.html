@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Functions</title>
+  </head>
+  <body>
+    <h1>Functions</h1>
+    <p>
+      Functions are the main “building blocks” of the program.<br />
+      They allow the code to be called many times without repetition.
+    </p>
+    <script>
+      // Function Declaration
+      // To create a function we can use a function declaration.
+      // function name(parameter1, parameter2, ... parameterN) {
+      // body
+      //  }
+      // Our new function can be called by its name: showMessage().
+      function showMessage() {
+        alert("Hello everyone!");
+      }
+
+      showMessage();
+      showMessage();
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Local variables
+      // A variable declared inside a function is only visible inside that function.
+      function showMessage1() {
+        let message = "Hello!"; // Local variables
+        console.log(message);
+      }
+      showMessage1();
+      //   console.log(message); // Error message is not define
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Outer variables
+      // A function can access an outer variable as well, for example:
+      let user = "Lalit";
+
+      function showMessage2() {
+        console.log(user);
+      }
+      showMessage2();
+
+      // The function has full access to the outer variable. It can modify it as well.
+      let name = "Lalit";
+
+      function showMessage3() {
+        name = "Purohit";
+        console.log(name);
+      }
+      console.log(name); // Lalit 'Before the function call'
+      showMessage3(); // purohit 'call the function'
+      console.log(name); // purohit 'modify the variable'
+      // The outer variable is only used if there’s no local one.
+
+      // if a same-named variable is declared inside the function then it shadows the outer one.
+      // in the code below the function uses the local userName. The outer one is ignored:
+      let userName = "Lalit Purohit";
+
+      function showMessage4() {
+        let userName = "Purohit Lalit";
+        console.log(userName);
+      }
+      showMessage4(); // Purohit Lalit
+      console.log(userName); // Lalit Purohit "because function not access the outer variable"
+
+      // Global variable
+      // Variables declared outside of any function, such as the outer userName in the code above, are called global.
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Parameters
+      // We can pass arbitrary data to functions using parameters.
+      // In the example below, the function has two parameters: from and text.
+      function showMessage5(from, text) {
+        // from, text two parameters
+        alert(from + ": " + text);
+      }
+      showMessage5("Name", "Lalit"); // Name: Lalit
+
+      function showMessage6(from, text) {
+        from = "*" + from + "*";
+        alert(from + ": " + text);
+      }
+      let from = "User";
+      showMessage6(from, "Lalit");
+      alert(from); // User
+      // When a value is passed as a function parameter, it’s also called an argument.
+      // In the example above, one might say: "the function showMessage is declared with two parameters,
+      // then called with two arguments: from and "Lalit"".
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Default values
+      // If a function is called, but an argument is not provided, then the corresponding value becomes undefined
+      // For instance, the aforementioned function showMessage(from, text) can be called with a single argument:
+      // showMessage("Ann");
+      // That’s not an error. Such a call would output "*Ann*: undefined".
+      // As the value for text isn’t passed, it becomes undefined.
+      function showMessage7(from, text = "no text given") {
+        // from, text two parameters
+        alert(from + ": " + text);
+      }
+      showMessage7("Name");
+      // Now if the text parameter is not passed, it will get the value "no text given".
+      // The default value also jumps in if the parameter exists, but strictly equals undefined
+
+      function showMessage8(from, text = anotherFunction()) {
+        // anotherFunction() only executed if no text given
+        // its result becomes the value of text
+      }
+
+      // Alternative default Parameters
+      // We can check if the parameter is passed during the function execution, by comparing it with undefined:
+      function showMessage9(text) {
+        if (text === undefined) {
+          // if the parameter is missing
+          text = "empty message";
+        }
+        alert(text);
+      }
+      showMessage9(); // empty message
+
+      // Modern JavaScript engines support the nullish coalescing operator ??,
+      // it’s better when most falsy values, such as 0, should be considered “normal”:
+      function showMessage10(text) {
+        alert(text ?? "unknown");
+      }
+      showMessage9(0); // 0
+      showMessage9(null); // unknown
+      showMessage9(); // unknown
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Returning a value
+      // A function can return a value back into the calling code as the result.
+      // The simplest example would be a function that sums two values:
+      function sum(a, b) {
+        return a + b;
+      }
+      let result = sum(1, 8);
+      console.log(result); // 9
+
+      function checkAge(age) {
+        if (age >= 18) {
+          return true;
+        } else {
+          return confirm("Do you have permission of your parents");
+        }
+      }
+
+      let age = prompt("what is your age", "18");
+      if (checkAge(age)) {
+        alert("access granted");
+      } else {
+        alert("access denied");
+      }
+
+      function showMovie(age) {
+        if (!checkAge(age)) {
+          return;
+        }
+
+        alert("Showing you the movie");
+      }
+      // In the code above, if checkAge(age) returns false, then showMovie won’t proceed to the alert.
+
+      // < ----------------------------------------------------------------------------------------
+
+      // Naming a function
+      // Functions are actions. So their name is usually a verb.
+      // It should be brief, as accurate as possible and describe what the function does,
+      // so that someone reading the code gets an indication of what the function does.
+      // Function starting with…
+      // "show" - usually show something.
+      //  "get…" – return a value,
+      //  "calc…" – calculate something,
+      //  "create…" – create something,
+      //  "check…" – check something and return a boolean, etc.
+
+      // Examples of such names:
+      //   showMessage(..)      shows a message
+      //   getAge(..)           returns the age (gets it somehow)
+      //   calcSum(..)          calculates a sum and returns the result
+      //   createForm(..)       creates a form (and usually returns it)
+      //   checkPermission(..)  checks a permission, returns true/false
+
+      // < -------------------------------------------------------------------------------------------
+
+      // Functions == Comments
+      // Functions should be short and do exactly one thing.
+      // If that thing is big, maybe it’s worth it to split the function into a few smaller functions.
+      // Sometimes following this rule may not be that easy, but it’s definitely a good thing.
+      function showPrimes(n) {
+        for (let i = 2; i < n; i++) {
+          if (!isPrime(i)) continue;
+
+          alert(i); // a prime
+        }
+      }
+
+      function isPrime(n) {
+        for (let i = 2; i < n; i++) {
+          if (n % i == 0) return false;
+        }
+        return true;
+      }
+      // This variant is easier to understand, isn’t it? Instead of the code piece we see a name of the action (isPrime).
+      // Sometimes people refer to such code as self-describing.
+
+      // < ----------------------------------------------------------------------------------------
+
+      // solution
+      // Using a question mark operator ?
+      function checkAge(age) {
+        return age > 18 ? true : confirm("Did parents allow you?");
+      }
+
+      // Using OR ||
+      function checkAge(age) {
+        return age > 18 || confirm("Did parents allow you?");
+      }
+
+      // Write a function min(a,b) which returns the least of two numbers a and b.
+      function min(a, b) {
+        if (a < b) {
+          return a;
+        } else {
+          return b;
+        }
+      }
+      console.log(min(2, 3));
+      console.log(min(3, -2));
+      console.log(min(1, 1));
+
+      // Write a function pow(x,n) that returns x in power n. Or, in other words,
+      // multiplies x by itself n times and returns the result.
+      function pow(x, n) {
+        let result = x**n;
+        console.log(result);
+      }
+      pow(3, 2);
+      pow(3, 3);
+      pow(1, 100);
+      
+    </script>
+  </body>
+</html>
